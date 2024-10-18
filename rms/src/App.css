@@ -1,0 +1,87 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #f6f9ff;
+}
+
+/* Sidebar expanded/collapsed styles */
+.sidebar {
+  width: 320px;
+  height: 100vh;
+  position: fixed;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 65px;
+  z-index: 1000; /* Ensure it is above the content */
+}
+
+.sidebar-container {
+  max-height: calc(100vh - 65px); /* Subtract the margin from the full height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 10px; /* Optional: for scrollbar spacing */
+}
+
+.sidebar.collapsed {
+  transform: translateX(-320px); /* Slide out of view when collapsed */
+}
+
+.sidebar .nav-link {
+  font-size: 1rem;
+  color: #012970;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* Main content area when sidebar is expanded/collapsed */
+.content {
+  margin-left: 320px;
+  transition: margin-left 0.3s ease-in-out;
+}
+.content-collapsed {
+  margin-left: 0px;
+}
+.nav-item a:hover{
+  color: #4154f1;
+  background-color: #f6f9ff;
+}
+.nav-link{
+  display: flex;
+  align-items: center;
+
+}
+.nav-link .bi-circle {
+  font-size: 8px;
+    padding-right: 10px;
+}
+/* Remove left margin on mobile devices */
+@media (max-width: 1000px) {
+  .sidebar {
+    width: 320px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%); /* Hide by default */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; /* Bring above content */
+  }
+  .sidebar.collapsed {
+    transform: translateX(0); /* Show when toggled */
+  }
+  .content {
+    margin-left: 0; /* No margin for content on mobile */
+  }
+}
+
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 100%;
+  }
+}
+@media (min-width: 576px) {
+  .container, .container-sm {
+      max-width: 100%;
+  }
+}

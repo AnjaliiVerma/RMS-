@@ -1,0 +1,11 @@
+.card {
+    border: 1px solid #007bff; /* Card border color */
+  }
+  
+  .table th, .table td {
+    vertical-align: middle; /* Center align content */
+  }
+  
+  .btn {
+    font-size: 0.9rem; /* Adjust button font size */
+  }
